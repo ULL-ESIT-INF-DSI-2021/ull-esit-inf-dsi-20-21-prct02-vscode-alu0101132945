@@ -18,7 +18,7 @@ Después de introducir el comando, se iniciara el proceso de instalación y una 
 
 ### Configuración de Visual Studio Code para conectarse a una máquina remota por SSH
 
-Habiendo instalado en el paso anterior VS code, en este paso lo que haremos sera instalar una extension de VS code que nos permita conectarnos por ssh a la maquina virtual. Para poder realizar este paso debemos ir a la parte de extensiones de VS code e instalar la denominada Remote - SSH. Una vez hecho esto, pulsamos ``` ´Ctrl+ shift + p´ ``` para abrir el menu de comandos de VS code y acto seguido tecleamos ssh y pulsamos sobre ``` ´Connect to host´ ```. Dado que en la practica anterior ya hicimos toda la configuración del ssh en la practica anterior, en el desplegable ahora aparece el nombre de la maquina virtual, al seleccionarla entraremos en la maquina virtual usando VS code.
+Habiendo instalado en el paso anterior VS code, en este paso lo que haremos sera instalar una extension de VS code que nos permita conectarnos por ssh a la maquina virtual. Para poder realizar este paso debemos ir a la parte de extensiones de VS code e instalar la denominada Remote - SSH. Una vez hecho esto, pulsamos ``` 'Ctrl+ shift + p' ``` para abrir el menu de comandos de VS code y acto seguido tecleamos ssh y pulsamos sobre ``` 'Connect to host' ```. Dado que en la practica anterior ya hicimos toda la configuración del ssh en la practica anterior, en el desplegable ahora aparece el nombre de la maquina virtual, al seleccionarla entraremos en la maquina virtual usando VS code.
 
 ### Sesiones colaborativas con Visual Studio Live Share
 
@@ -33,11 +33,11 @@ Lo primero que haremos en este apartado es instalar el compilador de typescript,
  [usuario@iaas-dsi2 ~]$npm install --global typescript
  ```
 
-una vez hecho estp, abrimos una terminal en vscode, usando el desplegable de terminal o el comando ``` ´Ctrl + Shift + `´ ``` y acto seguido crearemos el directorio donde haremos esta primera prueba. Una vez creado el directorio, iniciaremos npm usando el comando: 
+una vez hecho estp, abrimos una terminal en vscode, usando el desplegable de terminal o el comando ``` 'Ctrl + Shift + `' ``` y acto seguido crearemos el directorio donde haremos esta primera prueba. Una vez creado el directorio, iniciaremos npm usando el comando: 
 ```markdown 
 [usuario@iaas-dsi2 ~]$npm init --yes
 ```
-Una vez iniciado npm, creamos un fichero ``` ´tsconfig.json´ ``` en el que hira la configuración del compilador de typescript, al que le añadimos las siguientes lineas:
+Una vez iniciado npm, creamos un fichero ``` 'tsconfig.json' ``` en el que hira la configuración del compilador de typescript, al que le añadimos las siguientes lineas:
 ```markdown
 {
   "compilerOptions": {
