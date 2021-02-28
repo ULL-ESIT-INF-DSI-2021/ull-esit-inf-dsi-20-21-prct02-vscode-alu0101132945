@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+##  Informe práctica 2 - Instalación y Configuración de Visual Studio Code
 
-You can use the [editor on GitHub](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct02-vscode-alu0101132945/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+En esta práctica llevaremos a cabo la instalación y configuración del entorno de desarrollo que utilizaremos durante toda la asignatura, esto es, Visual Studio Code.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Visual Studio Code es un editor de código fuente desarrollado por Microsoft. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código. También es personalizable, por lo que los usuarios pueden cambiar el tema del editor, los atajos de teclado y las preferencias. Es gratuito y de código abierto. En esta practica instalaremos VS code en la maquina virtual, haremos algunas configuraciones iniciales y ademas instalaremos typescript y su compilador de cara a futuras practicas.
 
-### Markdown
+### Instalación y funcionalidad de Visual Studio Code
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Para instalar VS code en la maquina local haremos uso de uno(o ambos si la instalacion no fuese correctamente) de los siguientes comandos:
 
 ```markdown
-Syntax highlighted code block
+[usuario@iaas-dsi2 ~]$sudo apt install code
+```
+```markdown
+[usuario@iaas-dsi2 ~]$sudo snap install code --classic
+```
+Después de introducir el comando, se iniciara el proceso de instalación y una vez completado, ya tendremos instalado VS code en nuestra maquina local.
 
-# Header 1
-## Header 2
-### Header 3
+### Configuración de Visual Studio Code para conectarse a una máquina remota por SSH
 
-- Bulleted
-- List
+Habiendo instalado en el paso anterior VS code, en este paso lo que haremos sera instalar una extension de VS code que nos permita conectarnos por ssh a la maquina virtual. Para poder realizar este paso debemos ir a la parte de extensiones de VS code e instalar la denominada Remote - SSH. Una vez hecho esto, pulsamos ``` ´Ctrl+ shift + p´ ``` para abrir el menu de comandos de VS code y acto seguido tecleamos ssh y pulsamos sobre ``` ´Connect to host´ ```. Dado que en la practica anterior ya hicimos toda la configuración del ssh en la practica anterior, en el desplegable ahora aparece el nombre de la maquina virtual, al seleccionarla entraremos en la maquina virtual usando VS code.
 
-1. Numbered
-2. List
+### Sesiones colaborativas con Visual Studio Live Share
 
-**Bold** and _Italic_ and `Code` text
+Visual Studio Live Share permite colaborar en las tareas de desarrollo en tiempo real. Para poder utilizarlo, en primer lugar, debe buscar e instalar la extensión denominada Live Share Extension Pack, así como todas las extensiones recomendadas.
+Si se diese el caso de que necesitamos una extension en la maquina virtual y no estuviese instalada, aun que este en la maquina local deberemos instalarla igualmente.
 
-[Link](url) and ![Image](src)
+### Primer proyecto en TypeScript: “Hola Mundo”
+
+Lo primero que haremos en este apartado es instalar el compilador de typescript, para ello usaremos npm:
+
+```markdown
+ [usuario@iaas-dsi2 ~]$npm install --global typescript
+ ```
+
+una vez hecho estp, abrimos una terminal en vscode, usando el desplegable de terminal o el comando ``` ´Ctrl + Shift + `´ ``` y acto seguido crearemos el directorio donde haremos esta primera prueba. Una vez creado el directorio, iniciaremos npm usando el comando: 
+```markdown 
+[usuario@iaas-dsi2 ~]$npm init --yes
+```
+Una vez iniciado npm, creamos un fichero ``` ´tsconfig.json´ ``` en el que hira la configuración del compilador de typescript, al que le añadimos las siguientes lineas:
+```markdown
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "CommonJS"
+  }
+ ```
+
+Con lo anterior realizado, ya estara configurado el compilador. Añadiremos un directorio src en nuestra carpeta del ejemplo, en la que añadiremos el codigo typescript, con lo que ya estara todo preparado para poder hacer nuestro primer programa typescript. Creamos un fichero llamado index.ts y le añadimos las siguientes lineas:
+
+```typescript
+let myString: string = "Hola Mundo";
+console.log(myString);
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct02-vscode-alu0101132945/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+guardamos el codigo y ejecutamos el compilador con el comando tsc, esto creara una carpeta llamada dist donde se guardara el codigo js del proyecto, si ahora hacemos
+node  dist/index.js el codigo javascript se ejecutaría y aparecería un hola mundo por pantalla, que es lo que se programó en typescript.
